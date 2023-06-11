@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
 class Category extends Equatable {
-  final String name;
-  final String imageUrl;
+  final String? name;
+  final String? imageUrl;
 
   const Category({
     required this.name,
@@ -10,7 +10,7 @@ class Category extends Equatable {
   });
 
   @override
-  List<Object?> get props => throw [name, imageUrl];
+  List<Object?> get props => [name, imageUrl];
 
   static List<Category> categories = [
     const Category(
