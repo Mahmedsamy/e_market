@@ -1,8 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_market/models/models.dart';
 import 'package:e_market/widgets/custom_appbar.dart';
 import 'package:e_market/widgets/custom_navbar.dart';
+import 'package:e_market/widgets/hero_carouse_card.dart';
+import 'package:e_market/widgets/section_title.dart';
 import 'package:flutter/material.dart';
-import 'package:e_market/models/category_model.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,68 +17,78 @@ class HomeScreen extends StatelessWidget {
         title: 'e_market',
       ),
       bottomNavigationBar: const CustomNavBar(),
-      body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
-            aspectRatio: 2.0,
-            enlargeCenterPage: true,
-            enableInfiniteScroll: false,
-            initialPage: 2,
-            autoPlay: true,
+      body: Column(
+        children: [
+          Container(
+            child: CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 2.0,
+                enlargeCenterPage: true,
+                enableInfiniteScroll: false,
+                initialPage: 2,
+                autoPlay: true,
+              ),
+              items: Category.categories
+                  .map((category) =>
+                  HeroCarouseCard(
+                    category: category,
+                  ))
+                  .toList(),
+            ),
           ),
-          items: Category.categories.map((category) => HeroCarouseCard(category: category,)).toList(),
-        ),
+          const SectionTitle(title: 'RECOMENDED',),
+          // product Card
+           ProductCard()
+        ],
       ),
     );
   }
 }
 
-class HeroCarouseCard extends StatelessWidget {
-
-  final Category category;
-
-  const HeroCarouseCard({Key? key, required this.category}) : super(key: key);
+class ProductCard extends StatelessWidget {
+  const ProductCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(5.0),
-      child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-          child: Stack(
-            children: <Widget>[
-              Image.network(category.imageUrl!,
-          fit: BoxFit.cover,
-                  width: 1000.0),
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(200, 0, 0, 0),
-                        Color.fromARGB(0, 0, 0, 0)
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
+    return Stack(
+      children: [
+        Container(
+          width: MediaQuery
+              .of(context)
+              .size
+              .width / 2.5,
+          height: 150,
+          child: Image.network(Product.products[0].imageUrl!,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Positioned(
+          top: 60,
+          left: 5,
+          child: Container(width: MediaQuery.of(context).size.width /2.5 - 10 ,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.black.withAlpha(90),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(Product.products[0].name!,style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white),),
+                      Text('\$${Product.products[0].price!}',style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white),)
+                    ],
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 20.0),
-                  child:  Text(category.name!,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                  Expanded(child: IconButton(onPressed: () {}, icon: const Icon(Icons.add_circle,color: Colors.white,)))
+                ],
               ),
-            ],
-          )
-      ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
