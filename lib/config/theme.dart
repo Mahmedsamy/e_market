@@ -9,7 +9,7 @@ ThemeData theme() {
 }
 
 TextTheme textTheme() {
-  return  TextTheme(
+  return const TextTheme(
     displayLarge: TextStyle(
       color: Colors.black,
       fontSize: 32,

@@ -1,8 +1,7 @@
 import 'package:e_market/screens/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements  PreferredSizeWidget {
-
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
   const CustomAppBar({Key? key, required this.title}) : super(key: key);
@@ -19,19 +18,24 @@ class CustomAppBar extends StatelessWidget implements  PreferredSizeWidget {
             horizontal: 50,
             vertical: 10,
           ),
-          child:  Text(
-            title,
-            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Colors.white)
-          ),
+          child: Text(title,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .copyWith(color: Colors.white)),
         ),
       ),
-      iconTheme: const IconThemeData(color: Colors.black,size: 40),
-      actions: [IconButton(icon: const Icon(Icons.favorite), onPressed: () {
-        Navigator.push(
-                 context,
-                 MaterialPageRoute(
-                     builder: (BuildContext context) => WishList()));
-      } ),],
+      iconTheme: const IconThemeData(color: Colors.black, size: 40),
+      actions: [
+        IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const WishList()));
+            }),
+      ],
     );
   }
 

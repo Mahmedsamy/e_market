@@ -9,7 +9,7 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'e_market',
+        title: 'Product',
       ),
       bottomNavigationBar: CustomNavBar(),
     );

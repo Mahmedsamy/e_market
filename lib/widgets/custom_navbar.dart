@@ -14,27 +14,33 @@ class CustomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              IconButton(onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => const HomeScreen()));
-              }, icon: const Icon(Icons.home,color:Colors.white)),
-              IconButton(onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => CartScreen()));
-              }, icon: const Icon(Icons.shopping_cart,color:Colors.white)),
-              IconButton(onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (BuildContext context) => CartScreen()));
-              }, icon: const Icon(Icons.person,color:Colors.white)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                const HomeScreen()));
+                  },
+                  icon: const Icon(Icons.home, color: Colors.white)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => const CartScreen()));
+                  },
+                  icon: const Icon(Icons.shopping_cart, color: Colors.white)),
+              IconButton(
+                  onPressed: () {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (BuildContext context) => CartScreen()));
+                  },
+                  icon: const Icon(Icons.person, color: Colors.white)),
             ],
           ),
-        )
-    );
+        ));
   }
 }

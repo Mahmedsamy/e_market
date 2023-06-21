@@ -5,8 +5,8 @@ class Product extends Equatable {
   final String? category;
   final String? imageUrl;
   final double? price;
-  final bool? isRecommended;
-  final bool? isPopular;
+  final bool isRecommended;
+  final bool isPopular;
 
   const Product({
     required this.name,
@@ -37,7 +37,7 @@ class Product extends Equatable {
         'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c03954689.png',
         price: 3.99,
         isRecommended: true,
-        isPopular: false
+        isPopular: true
     ),
     const Product(
         name: 'MacBook',
@@ -46,7 +46,7 @@ class Product extends Equatable {
         'https://techcrunch.com/wp-content/uploads/2020/11/2020-11-16-074520097.jpg',
         price: 6.99,
         isRecommended: true,
-        isPopular: false
+        isPopular: true
     ),
     const Product(
         name: 'Lenovo',
