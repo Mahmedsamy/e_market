@@ -4,6 +4,7 @@ import 'package:e_market/widgets/custom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class CatalogScreen extends StatelessWidget {
+
   final Category category;
 
   const CatalogScreen({Key? key, required this.category}) : super(key: key);

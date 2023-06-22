@@ -3,6 +3,7 @@ import 'package:e_market/screens/catalog/catalog_screen.dart';
 import 'package:flutter/material.dart';
 
 class HeroCarouseCard extends StatelessWidget {
+
   final Category category;
 
   const HeroCarouseCard({Key? key, required this.category}) : super(key: key);
@@ -14,8 +15,7 @@ class HeroCarouseCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => const CatalogScreen()));
-
+                builder: (BuildContext context) =>  CatalogScreen(category: category,)));
       },
       child: Container(
         margin: const EdgeInsets.all(5.0),

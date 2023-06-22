@@ -32,13 +32,13 @@ class HomeScreen extends StatelessWidget {
                     .toList(),
               ),
             ),
-             SectionTitle(
+             const SectionTitle(
               title: 'RECOMMENDED'),
             ProductCarousel(
                 products: Product.products
                     .where((product) => product.isRecommended)
                     .toList()),
-            SectionTitle(
+            const SectionTitle(
                 title: 'Most Popular'),
             ProductCarousel(
                 products: Product.products
